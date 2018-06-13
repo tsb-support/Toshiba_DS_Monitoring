@@ -1,0 +1,36 @@
+# Ignore all dotfiles #
+#######################
+.*
+!/.gitignore
+!/.editorconfig
+!/.scrutinizer.yml
+!/.travis.yml
+!/.php_cs
+!/.github/
+!/.codeclimate.yml
+!/.mention-bot
+!/.env.example
+
+# Others #
+##########
+*.swp
+Thumbs.db
+config.php
+html/css/custom/*
+html/images/custom/*
+html/plugins/*
+!html/plugins/Test/
+includes/custom/*
+junk
+nbproject
+patches
+!/lib/yaml
+/vendor
+/node_modules
+composer.phar
+_ide_helper.php
+
+# Docs #
+########
+out
+librenms_theme
