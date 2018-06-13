@@ -1,0 +1,237 @@
+TOSHIBA-ES-MIB DEFINITIONS ::= BEGIN
+ 
+ IMPORTS
+         OBJECT-TYPE, Integer32,
+         MODULE-IDENTITY, enterprises                            FROM SNMPv2-SMI
+         RowStatus, StorageType, DisplayString                   FROM SNMPv2-TC
+         InetAddressType, InetAddress                            FROM INET-ADDRESS-MIB
+ ;
+ 
+ toshibaES MODULE-IDENTITY
+     LAST-UPDATED "201712050000Z"
+     ORGANIZATION "Toshiba Electronics Europe GmbH"
+     CONTACT-INFO ""
+     DESCRIPTION  "Toshiba Electronics Europe GmbH"
+     REVISION     "201712050000Z"
+     DESCRIPTION
+     "First draft"
+     ::= { enterprises 20008}
+ 
+ hardware        OBJECT IDENTIFIER ::= {toshibaES 1}
+ network         OBJECT IDENTIFIER ::= {toshibaES 2}
+ storage         OBJECT IDENTIFIER ::= {toshibaES 3}
+ power           OBJECT IDENTIFIER ::= {toshibaES 4}
+ panel           OBJECT IDENTIFIER ::= {toshibaES 5}
+ signage         OBJECT IDENTIFIER ::= {toshibaES 6}
+ browser         OBJECT IDENTIFIER ::= {toshibaES 7}
+ 
+ 
+ temperature OBJECT-TYPE
+     SYNTAX Integer32
+     MAX-ACCESS read-only
+     STATUS current
+     DESCRIPTION "Monitor temperature."
+     ::= {hardware 1}
+ 
+ memoryUsage OBJECT-TYPE
+     SYNTAX Integer32
+     MAX-ACCESS read-only
+     STATUS current
+     DESCRIPTION "Memory usage."
+     ::= {hardware 2}
+ 
+ source OBJECT-TYPE
+     SYNTAX DisplayString
+     MAX-ACCESS read-only
+     STATUS current
+     DESCRIPTION "The current source"
+     ::= {signage 1}
+ 
+ volume OBJECT-TYPE
+     SYNTAX Integer32
+     MAX-ACCESS read-only
+     STATUS current
+     DESCRIPTION "Current volume value"
+     ::= {signage 2}
+ 
+ signageID OBJECT-TYPE
+     SYNTAX Integer32
+     MAX-ACCESS read-only
+     STATUS current
+     DESCRIPTION "The current signage ID"
+     ::= {signage 3}
+ 
+ fwVersion OBJECT-TYPE
+     SYNTAX DisplayString
+     MAX-ACCESS read-only
+     STATUS current
+     DESCRIPTION "The firmware version"
+     ::= {signage 4}
+ 
+ profile OBJECT-TYPE
+     SYNTAX Integer32
+     MAX-ACCESS read-only
+     STATUS current
+     DESCRIPTION "The profile version"
+     ::= {signage 5}
+ 
+ startUrl OBJECT-TYPE
+     SYNTAX DisplayString
+     MAX-ACCESS read-only
+     STATUS current
+     DESCRIPTION "The current starturl"
+     ::= {browser 1}
+ 
+ browser4k OBJECT-TYPE
+     SYNTAX DisplayString
+     MAX-ACCESS read-only
+     STATUS current
+     DESCRIPTION "4k feature status"
+     ::= {browser 2}
+ 
+ gpuRaster OBJECT-TYPE
+     SYNTAX DisplayString
+     MAX-ACCESS read-only
+     STATUS current
+     DESCRIPTION "GPU raster feature status"
+     ::= {browser 3}
+ 
+ memLimit OBJECT-TYPE
+     SYNTAX Integer32
+     MAX-ACCESS read-only
+     STATUS current
+     DESCRIPTION "The browser memory limit"
+     ::= {browser 4}
+ 
+ networkType OBJECT-TYPE
+     SYNTAX DisplayString
+     MAX-ACCESS read-only
+     STATUS current
+     DESCRIPTION "Current network type"
+     ::= {network 1}
+ 
+ macAddress OBJECT-TYPE
+     SYNTAX DisplayString
+     MAX-ACCESS read-only
+     STATUS current
+     DESCRIPTION "Mac address of the network card"
+     ::= {network 2}
+ 
+ subnet OBJECT-TYPE
+     SYNTAX DisplayString
+     MAX-ACCESS read-only
+     STATUS current
+     DESCRIPTION "the network subnet"
+     ::= {network 3}
+ 
+ gateway OBJECT-TYPE
+     SYNTAX DisplayString
+     MAX-ACCESS read-only
+     STATUS current
+     DESCRIPTION "the gateway address"
+     ::= {network 4}
+ 
+ activeStandby OBJECT-TYPE
+     SYNTAX DisplayString
+     MAX-ACCESS read-only
+     STATUS current
+     DESCRIPTION "the active standby status"
+     ::= {power 1}
+ 
+ panelStatus OBJECT-TYPE
+     SYNTAX DisplayString
+     MAX-ACCESS read-only
+     STATUS current
+     DESCRIPTION "ON/OFF status of the panel in active standby mode"
+     ::= {panel 1}
+ 
+ usbStorage OBJECT IDENTIFIER ::= {storage 1}
+ 
+ count OBJECT-TYPE
+     SYNTAX Integer32
+     MAX-ACCESS read-only
+     STATUS current
+     DESCRIPTION "Number of USB attached"
+     ::= {usbStorage 1}
+ 
+ usbORTable OBJECT-TYPE
+     SYNTAX     SEQUENCE OF UsbOREntry
+     MAX-ACCESS not-accessible
+     STATUS     current
+     DESCRIPTION
+             "The (conceptual) table listing the capabilities of
+             the local SNMP application acting as a command
+             responder with respect to various MIB modules.
+             SNMP entities having dynamically-configurable support
+             of MIB modules will have a dynamically-varying number
+             of conceptual rows."
+     ::= { usbStorage 2 }
+ 
+ usbOREntry OBJECT-TYPE
+     SYNTAX     UsbOREntry
+     MAX-ACCESS not-accessible
+     STATUS     current
+     DESCRIPTION
+             "An entry (conceptual row) in the usbORTable."
+     INDEX      { usbORIndex }
+     ::= { usbORTable 1 }
+ 
+ UsbOREntry ::= SEQUENCE {
+     usbORIndex          INTEGER,
+     usbORName           DisplayString,
+     usbORPath           DisplayString,
+     usbORFileSystem     DisplayString,
+     usbORTotalSpace     Integer32,
+     usbORAvailableSpace Integer32
+ }
+ 
+ usbORIndex OBJECT-TYPE
+     SYNTAX     INTEGER (1..2147483647)
+     MAX-ACCESS not-accessible
+     STATUS     current
+     DESCRIPTION
+             "The auxiliary variable used for identifying instances
+             of the columnar objects in the usbORTable."
+     ::= { usbOREntry 1 }
+ 
+ usbORName OBJECT-TYPE
+     SYNTAX     DisplayString
+     MAX-ACCESS read-only
+     STATUS     current
+     DESCRIPTION
+             "Name of the USB"
+     ::= { usbOREntry 2 }
+ 
+ usbORPath OBJECT-TYPE
+     SYNTAX     DisplayString
+     MAX-ACCESS read-only
+     STATUS     current
+     DESCRIPTION
+             "Path of the USB"
+     ::= { usbOREntry 3 }
+ 
+ usbORFileSystem OBJECT-TYPE
+     SYNTAX     DisplayString
+     MAX-ACCESS read-only
+     STATUS     current
+     DESCRIPTION
+             "File system of the USB"
+     ::= { usbOREntry 4 }
+ 
+ usbORTotalSpace OBJECT-TYPE
+     SYNTAX     Integer32
+     MAX-ACCESS read-only
+     STATUS     current
+     DESCRIPTION
+             "Total space of the USB"
+     ::= { usbOREntry 5 }
+ 
+ usbORAvailableSpace OBJECT-TYPE
+     SYNTAX     Integer32
+     MAX-ACCESS read-only
+     STATUS     current
+     DESCRIPTION
+             "Free space of USB"
+     ::= { usbOREntry 6 }
+ 
+ END

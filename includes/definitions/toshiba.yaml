@@ -1,0 +1,26 @@
+os: toshiba
+type: TES
+mib_dir:
+    - toshiba
+group: unix
+text: Toshiba Embedded Signage
+ifXmcbc: 0
+ifname: 1
+over:
+    - { graph: device_processor, text: 'Processor Usage' }
+    - { graph: device_ucd_memory, text: 'Memory Usage' }
+    - { graph: device_storage, text: 'Storage Usage' }
+poller_modules:
+    mib: 1
+discovery_modules:
+    os: 1
+    bgp-peers: 0
+    stp: 0
+    vmware-vminfo: 0
+    libvirt-vminfo: 0
+processor_stacked: 1
+register_mibs:
+    toshibaES: TOSHIBA-ES-MIB
+discovery:
+    - sysObjectID: .1.3.6.1.4.1.8072.3.2.10
+    - sysDescr_regex: '/^Linux/'
