@@ -773,18 +773,18 @@ $config['poller_modules']['services']                    = 1;
 $config['poller_modules']['loadbalancers']               = 0;
 $config['poller_modules']['mef']                         = 0;*/
 
-$config['poller_modules']['unix-agent']                  = 0;
+$config['poller_modules']['unix-agent']                  = 1;
 $config['poller_modules']['os']                          = 0;
 $config['poller_modules']['ipmi']                        = 0;
 $config['poller_modules']['sensors']                     = 0;
-$config['poller_modules']['processors']                  = 0;
+$config['poller_modules']['processors']                  = 1;
 $config['poller_modules']['mempools']                    = 0;
-$config['poller_modules']['storage']                     = 0;
+$config['poller_modules']['storage']                     = 1;
 $config['poller_modules']['netstats']                    = 0;
 $config['poller_modules']['hr-mib']                      = 0;
 $config['poller_modules']['ucd-mib']                     = 0;
 $config['poller_modules']['ipSystemStats']               = 0;
-$config['poller_modules']['ports']                       = 0;
+$config['poller_modules']['ports']                       = 1;
 $config['poller_modules']['bgp-peers']                   = 0;
 $config['poller_modules']['junose-atm-vp']               = 0;
 $config['poller_modules']['toner']                       = 0;
@@ -812,15 +812,15 @@ $config['poller_modules']['entity-state']                = 0;
 $config['poller_modules']['applications']                = 0;
 $config['poller_modules']['mib']                         = 1;
 $config['poller_modules']['stp']                         = 0;
-$config['poller_modules']['ntp']                         = 0;
-$config['poller_modules']['services']                    = 0;
+$config['poller_modules']['ntp']                         = 1;
+$config['poller_modules']['services']                    = 1;
 $config['poller_modules']['loadbalancers']               = 0;
 $config['poller_modules']['mef']                         = 0;
 
 // List of discovery modules. Need to be in this array to be
 // considered for execution.
 $config['discovery_modules']['os']                   = 1;
-$config['discovery_modules']['ports']                = 0;
+$config['discovery_modules']['ports']                = 1;
 $config['discovery_modules']['ports-stack']          = 0;
 $config['discovery_modules']['entity-physical']      = 0;
 $config['discovery_modules']['entity-state']         = 0;
