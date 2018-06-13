@@ -3,7 +3,7 @@ type: TES
 mib_dir:
     - toshiba
 group: unix
-text: Toshiba Embedded Signage
+text: Toshiba DS
 ifXmcbc: 0
 ifname: 1
 over:
