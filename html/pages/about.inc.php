@@ -43,7 +43,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/">htt
 
     &nbsp;
 
-
+<!--
     <h3>Statistics</h3>
 
 <?php
@@ -149,6 +149,7 @@ echo "
 </div>
 ";
 ?>
+-->
   </div>
 
   <div style="float: left; padding: 0px; width: 49%">
