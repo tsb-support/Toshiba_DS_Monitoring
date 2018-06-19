@@ -1,5 +1,5 @@
 os: toshiba
-type: TES
+type: TDS
 mib_dir:
     - toshiba
 group: unix
