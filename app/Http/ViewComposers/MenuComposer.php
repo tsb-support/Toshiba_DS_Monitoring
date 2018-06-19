@@ -63,7 +63,7 @@ class MenuComposer
 
         $vars['navbar'] = in_array(Config::get('site_style'), ['mono', 'dark']) ? 'navbar-inverse' : '';
 
-        $vars['project_name'] = Config::get('project_name', 'Toshiba DS Monitoring');
+        $vars['project_name'] = Config::get('project_name', 'Toshiba DS Monitor');
         $vars['title_image'] = asset(Config::get('title_image', 'images/Toshiba_logo.svg'));
 
         // Device menu
