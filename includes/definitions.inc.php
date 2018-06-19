@@ -610,8 +610,8 @@ $config['device_types'][$i]['type'] = 'workstation';
 $config['device_types'][$i]['icon'] = 'workstation.png';
 
 $i++;
-$config['device_types'][$i]['text'] = 'Toshiba Embedded Signage Unit';
-$config['device_types'][$i]['type'] = 'TES';
+$config['device_types'][$i]['text'] = 'Toshiba Digital Signage Unit';
+$config['device_types'][$i]['type'] = 'TDS';
 $config['device_types'][$i]['icon'] = 'server.png';
 
 //
