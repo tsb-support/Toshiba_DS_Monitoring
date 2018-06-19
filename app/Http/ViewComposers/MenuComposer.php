@@ -64,7 +64,7 @@ class MenuComposer
         $vars['navbar'] = in_array(Config::get('site_style'), ['mono', 'dark']) ? 'navbar-inverse' : '';
 
         $vars['project_name'] = Config::get('project_name', 'LibreNMS');
-        $vars['title_image'] = asset(Config::get('title_image', 'images/librenms_logo_light.svg'));
+        $vars['title_image'] = asset(Config::get('title_image', 'images/Toshiba_logo.svg'));
 
         // Device menu
         $vars['device_groups'] = DeviceGroup::hasAccess($user)->select('device_groups.id', 'name', 'desc')->get();
