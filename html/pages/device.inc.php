@@ -449,6 +449,14 @@ if (device_permitted($vars['device']) || $permitted_by_port) {
                 </a>
                 </li>';
         }
+        
+        if ($device['os'] == 'toshiba') {
+            echo '<li role="presentation" '.$select['dscontroller'].'>
+                <a href="'.generate_device_url($device, array('tab' => 'dscontroller')).'">
+                <i class="fa fa-file-text-o fa-lg icon-theme"  aria-hidden="true"></i> Controller
+                </a>
+                </li>';
+        }
 
             echo '<div class="dropdown pull-right">
                   <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-cog fa-lg icon-theme"  aria-hidden="true"></i>
