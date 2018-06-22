@@ -1098,6 +1098,14 @@ Set <code>$config[\'poller_modules\'][\'mib\'] = 1;</code> in <code>config.php</
 </p>';
 } // print_mib_poller_disabled
 
+function print_ds_controller_disabled()
+{
+    echo '<h4>DS Controller is not configured</h4>
+<p>
+Set <code>$config[\'ds_controller_url\'] = \'<your_ds_controller_url>\';</code> in <code>config.php.<br/>Example: \'http://192.168.55.122:3000/DSController/\';</code>.
+</p>';
+} // print_ds_controller__disabled
+
 
 /**
  * Constructs the path to an RRD for the Ceph application
