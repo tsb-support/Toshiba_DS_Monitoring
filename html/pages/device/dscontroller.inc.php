@@ -22,7 +22,7 @@ if (!isset($vars['section'])) {
 echo('<h4><i class="fa fa-file-text-o"></i> Toshiba DS Controller</h4>');
 
 if (!isset($conf['ds_controller_url'])) {
-    echo('<iframe style="width:100%;height:1000px;border: 0px solid white" src="'. $config['ds_controller_url']. '?ip='. $device['hostname'] .'"></iframe>');
+    echo('<iframe style="width:100%;height:1000px;border: 0px solid white" src="'. $config['ds_controller_url']. '/#!/main?ip='. $device['hostname'] .'"></iframe>');
 }
 else 
 {
