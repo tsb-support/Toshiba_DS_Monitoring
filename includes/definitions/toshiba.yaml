@@ -8,8 +8,8 @@ ifXmcbc: 0
 ifname: 1
 over:
     - { graph: device_processor, text: 'Processor Usage' }
-    - { graph: device_ucd_memory, text: 'Memory Usage' }
-    - { graph: device_storage, text: 'Storage Usage' }
+#    - { graph: device_ucd_memory, text: 'Memory Usage' }
+#    - { graph: device_storage, text: 'Storage Usage' }
 poller_modules:
     mib: 1
 discovery_modules:
